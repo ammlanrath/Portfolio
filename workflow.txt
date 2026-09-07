@@ -1,0 +1,147 @@
+Portfolio/
+│
+├── index.html                         # Home Page
+│
+├── html/
+│   │
+│   ├── about.html
+│   ├── education.html
+│   ├── hire.html
+│   ├── contact.html
+│   │
+│   ├── project.html                   # All Projects
+│   ├── blog.html                      # All Blogs
+│   │
+│   ├── projects/
+│   │   ├── template.html              # Project Page Template
+│   │   ├── zomato.html
+│   │   ├── netflix.html
+│   │   ├── weather.html
+│   │   └── ...
+│   │
+│   ├── blogs/
+│   │   ├── template.html              # Blog Page Template
+│   │   ├── first-blog.html
+│   │   ├── gsap-guide.html
+│   │   ├── portfolio-tips.html
+│   │   └── ...
+│   │
+│   └── errors/
+│       ├── 400.html
+│       ├── 401.html
+│       ├── 403.html
+│       ├── 404.html
+│       ├── 500.html
+│       ├── maintenance.html
+│       └── offline.html
+│
+├── assets/
+│   │
+│   ├── css/
+│   │   ├── global.css
+│   │   ├── home.css
+│   │   ├── about.css
+│   │   ├── education.css
+│   │   ├── project.css
+│   │   ├── project-details.css
+│   │   ├── blog.css
+│   │   ├── blog-details.css
+│   │   ├── hire.css
+│   │   ├── contact.css
+│   │   └── error.css
+│   │
+│   ├── js/
+│   │   ├── global.js
+│   │   ├── home.js
+│   │   ├── about.js
+│   │   ├── education.js
+│   │   ├── project.js
+│   │   ├── project-details.js
+│   │   ├── blog.js
+│   │   ├── blog-details.js
+│   │   ├── hire.js
+│   │   ├── contact.js
+│   │   └── error.js
+│   │
+│   ├── images/
+│   │   ├── profile/
+│   │   ├── projects/
+│   │   │   ├── zomato/
+│   │   │   ├── netflix/
+│   │   │   ├── weather/
+│   │   │   └── ...
+│   │   │
+│   │   ├── blogs/
+│   │   │   ├── first-blog/
+│   │   │   ├── gsap-guide/
+│   │   │   ├── portfolio-tips/
+│   │   │   └── ...
+│   │   │
+│   │   ├── certificates/
+│   │   ├── achievements/
+│   │   ├── logos/
+│   │   ├── backgrounds/
+│   │   └── icons/
+│   │
+│   └── resume/
+│       └── Ammlan_Rath_Resume.pdf
+│
+├── favicon.ico
+├── robots.txt
+├── sitemap.xml
+├── README.md
+└── LICENSE
+
+BLUEPRINT
+
+Portfolio_UI_UX_Blueprint/
+
+│
+
+├── 00_Master_Index.pdf
+
+│
+
+├── 01_Design_Philosophy_and_Brand_Guidelines.pdf
+
+├── 02_Visual_Identity_and_Design_Language.pdf
+
+├── 03_Colour_Gradient_Background_System.pdf
+
+├── 04_Typography_and_Iconography_System.pdf
+
+├── 05_Layout_Grid_Spacing_and_Responsive_System.pdf
+
+├── 06_Component_Design_System.pdf
+
+├── 07_Home_Page_Experience_Blueprint.pdf
+
+├── 08_About_Page_Experience_Blueprint.pdf
+
+├── 09_Education_Page_Experience_Blueprint.pdf
+
+├── 10_Project_Listing_Page_Blueprint.pdf
+
+├── 11_Project_Detail_Page_Blueprint.pdf
+
+├── 12_Blog_Listing_Page_Blueprint.pdf
+
+├── 13_Blog_Detail_Page_Blueprint.pdf
+
+├── 14_Hire_Page_Blueprint.pdf
+
+├── 15_Contact_Page_Blueprint.pdf
+
+├── 16_Error_Pages_Blueprint.pdf
+
+├── 17_Motion_Animation_and_Scroll_Storytelling.pdf
+
+├── 18_Micro_Interactions_and_Cursor_System.pdf
+
+├── 19_Asset_and_Image_Specification_Guide.pdf
+
+├── 20_Accessibility_and_Responsive_Guidelines.pdf
+
+├── 21_Design_QA_Checklist.pdf
+
+└── 22_Final_UI_UX_Blueprint.pdf

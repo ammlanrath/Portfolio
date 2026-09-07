@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Official portfolio of Ammlan Rath — Frontend Developer, UI Designer and Web Developer.">
+    <meta name="description"
+        content="Official portfolio of Ammlan Rath — Frontend Developer, UI Designer and Web Developer.">
     <meta name="keywords" content="Portfolio, HTML, CSS, JavaScript, Frontend Developer, UI Designer">
     <meta name="author" content="Ammlan Rath">
     <meta name="robots" content="index, follow">
@@ -17,9 +19,20 @@
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/home.css">
 </head>
+
 <body>
     <a href="#main-content" class="skip-link">Skip to Main Content</a>
     <div id="page-transition"></div>
+    <div class="cursor-spotlight" id="cursor-spotlight" aria-hidden="true">
+        <div class="cursor-spotlight__orb cursor-spotlight__orb--wide" id="cursor-orb-wide"></div>
+        <div class="cursor-spotlight__orb cursor-spotlight__orb--core" id="cursor-orb-core"></div>
+    </div>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="custom-cursor">
+        <div class="custom-cursor__dot"></div>
+        <div class="custom-cursor__ring"></div>
+        <div class="custom-cursor__label" id="custom-cursor-label"></div>
+    </div>
     <button id="back-to-top" aria-label="Back to Top">↑</button>
 
     <header class="header" id="header">
@@ -30,7 +43,8 @@
 
             <nav class="navbar" aria-label="Primary Navigation">
                 <ul class="navbar__list">
-                    <li class="navbar__item"><a href="index.html" class="navbar__link navbar__link--active">Home</a></li>
+                    <li class="navbar__item"><a href="index.html" class="navbar__link navbar__link--active">Home</a>
+                    </li>
                     <li class="navbar__item"><a href="html/about.html" class="navbar__link">About</a></li>
                     <li class="navbar__item"><a href="html/education.html" class="navbar__link">Education</a></li>
                     <li class="navbar__item"><a href="html/project.html" class="navbar__link">Projects</a></li>
@@ -43,7 +57,8 @@
             <div class="header__actions">
                 <a href="assets/resume/Ammlan_Rath_Resume.pdf" class="button button--secondary">Resume</a>
                 <a href="html/contact.html" class="button button--primary">Let's Talk</a>
-                <button class="menu-button" aria-label="Open Navigation" aria-expanded="false" aria-controls="mobile-navigation">☰</button>
+                <button class="menu-button" aria-label="Open Navigation" aria-expanded="false"
+                    aria-controls="mobile-navigation">☰</button>
             </div>
         </div>
     </header>
@@ -61,90 +76,392 @@
     </nav>
 
     <main id="main-content">
+        <div class="canvas-ambient" id="canvas-ambient" aria-hidden="true">
+            <div class="canvas-ambient__blob canvas-ambient__blob--1" id="ambient-blob-1"></div>
+            <div class="canvas-ambient__blob canvas-ambient__blob--2" id="ambient-blob-2"></div>
+            <div class="canvas-ambient__blob canvas-ambient__blob--3" id="ambient-blob-3"></div>
+            <div class="canvas-ambient__grid"></div>
+            <div class="canvas-ambient__noise"></div>
+        </div>
+        <div class="ambient-glow ambient-glow--1" id="ambient-glow-1"></div>
+        <div class="ambient-glow ambient-glow--2" id="ambient-glow-2"></div>
+        <div class="ambient-glow ambient-glow--3" id="ambient-glow-3"></div>
         <section class="hero" id="hero">
-            <div class="container hero__container">
-                <div class="hero__content">
-                    <p class="hero__availability">● Available for Freelance</p>
-                    <p class="hero__greeting">Hello, I'm</p>
-                    <h1 class="hero__title">Ammlan Rath</h1>
-                    <h2 class="hero__subtitle">Frontend Developer &amp; UI/UX Enthusiast</h2>
-                    <p class="hero__description">I design and develop premium, responsive and user-focused web experiences using HTML, CSS and JavaScript.</p>
+            <!-- Cinematic Background -->
+            <div class="hero__bg-mesh">
+                <div class="mesh-glow mesh-glow--1"></div>
+                <div class="mesh-glow mesh-glow--2"></div>
+            </div>
+            <div class="hero__bg-noise"></div>
 
+
+
+            <div class="container hero__container">
+                <!-- LEFT COLUMN -->
+                <div class="hero__left">
+
+
+                    <p class="hero__greeting">Hello, I'm</p>
+
+                    <!-- Huge Name -->
+                    <h1 class="hero__title" id="hero-title">
+                        <span class="title-word">Ammlan</span>
+                        <span class="title-word title-word--brand">Rath</span>
+                    </h1>
+
+                    <p class="hero__description">
+                        I design and build premium, responsive and user-focused web experiences.
+                    </p>
+
+                    <!-- Primary buttons -->
                     <div class="hero__buttons">
-                        <a href="html/project.html" class="button button--primary">View My Work</a>
-                        <a href="html/hire.html" class="button button--secondary">Hire Me</a>
+                        <a href="html/project.html" class="button button--primary hero__btn hero__btn--primary">
+                            <span>View My Work</span>
+                            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2.5">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                        <a href="html/hire.html" class="button button--secondary hero__btn hero__btn--secondary">
+                            <span>Hire Me</span>
+                        </a>
                     </div>
 
-                    <ul class="hero__social-links" aria-label="Social links">
-                        <li class="hero__social-item"><a href="#" class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WhatsApp</a></li>
-                        <li class="hero__social-item"><a href="#" class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a></li>
-                        <li class="hero__social-item"><a href="#" class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a></li>
-                        <li class="hero__social-item"><a href="#" class="hero__social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a></li>
-                    </ul>
+                    <!-- Social icons -->
+                    <div class="hero__socials-section">
+                        <p class="hero__socials-heading">Connect with me</p>
+                        <div class="hero__social-row">
+                            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer"
+                                aria-label="WhatsApp">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                                </svg>
+                            </a>
+                            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer"
+                                aria-label="Instagram">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer"
+                                aria-label="LinkedIn">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                    </path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer"
+                                aria-label="GitHub">
+                                <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Bottom opportunities card -->
+                    <div class="hero__status-card glass-card">
+
+                        <div class="status-card__body">
+                            <span class="status-card__bolt">⚡</span>
+                            <div class="status-card__text">
+                                <span class="status-card__lbl">OPEN TO</span>
+                                <span class="status-card__val">NEW OPPORTUNITIES</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="hero__visual">
-                    <img src="assets/images/profile/profile-image.png" alt="Portrait of Ammlan Rath" class="hero__image">
+                <!-- CENTER COLUMN -->
+                <div class="hero__center">
+                    <div class="hero__portrait-stage">
+                        <!-- Background Glow -->
+                        <div class="hero__stage-glow"></div>
+
+                        <!-- Orbit Ring System -->
+                        <!-- Inner Ring & Rotating Planet Path -->
+                        <div class="hero__orbit-ring hero__orbit-ring--inner"></div>
+                        <div class="hero__orbit-path hero__orbit-path--inner">
+                            <div class="orbit-planet orbit-planet--a"></div>
+                            <div class="orbit-planet orbit-planet--e"></div>
+                        </div>
+
+                        <!-- Main Ring & Rotating Planet Path -->
+                        <div class="hero__orbit-ring hero__orbit-ring--main"></div>
+                        <div class="hero__orbit-path hero__orbit-path--main">
+                            <div class="orbit-planet orbit-planet--b"></div>
+                            <div class="orbit-planet orbit-planet--d"></div>
+                        </div>
+
+                        <div class="hero__orbit-ring hero__orbit-ring--outer"></div>
+                        <div class="hero__orbit-path hero__orbit-path--outer">
+                            <div class="orbit-planet orbit-planet--c"></div>
+                        </div>
+
+
+
+                        <!-- Floating particles canvas centered on the portrait -->
+                        <canvas class="hero__portrait-particles" id="portrait-particles"></canvas>
+
+                        <!-- The Portrait Image -->
+                        <div class="hero__portrait-wrapper" id="portrait-wrapper">
+                            <img src="assets/images/profile/profile-picture.png" alt="Ammlan Rath"
+                                class="hero__portrait-img" id="portrait-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="hero__right">
+                    <!-- Animated Role -->
+                    <div class="hero__role-section">
+                        <span class="hero__role-eyebrow">I'M A</span>
+                        <div class="hero__role-wrapper">
+                            <span class="hero__role-text" id="role-text">Frontend Developer</span>
+                        </div>
+                        <div class="hero__role-underline" id="role-underline"></div>
+                    </div>
+
+                    <p class="hero__role-description">
+                        I craft clean, interactive and high-performance websites that make an impact.
+                    </p>
+
+                    <!-- Info Cards Group -->
+                    <div class="hero__info-cards-container">
+                        <!-- Current Focus Card -->
+                        <div class="hero__glass-card" data-tilt>
+                            <div class="glass-card__icon-wrap">
+                                <svg class="glass-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                                </svg>
+                            </div>
+                            <div class="glass-card__content">
+                                <span class="glass-card__label">// CURRENT FOCUS</span>
+                                <span class="glass-card__value">B.Tech in Computer Science</span>
+                            </div>
+                        </div>
+
+                        <!-- Location Card -->
+                        <div class="hero__glass-card" data-tilt>
+                            <div class="glass-card__icon-wrap">
+                                <svg class="glass-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="glass-card__content">
+                                <span class="glass-card__label">// BASED IN</span>
+                                <span class="glass-card__value">Odisha, India</span>
+                            </div>
+                        </div>
+
+                        <!-- Experience Card -->
+                        <div class="hero__glass-card" data-tilt>
+                            <div class="glass-card__icon-wrap">
+                                <svg class="glass-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>
+                            </div>
+                            <div class="glass-card__content">
+                                <span class="glass-card__label">// EXPERIENCE</span>
+                                <span class="glass-card__value">2+ Years</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Drag Me Interactive Dial -->
+                    <div class="hero__interactive-dial" id="explore-dial-container">
+                        <div class="dial__label-wrap">
+                            <span class="dial__title">DRAG ME</span>
+                            <span class="dial__desc">Explore the experience</span>
+                        </div>
+                        <div class="dial__control" id="interactive-dial">
+                            <div class="dial__outer-ring"></div>
+                            <div class="dial__inner-ring"></div>
+                            <div class="dial__center-dot"></div>
+                            <div class="dial__handle" id="dial-handle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="hero__scroll-indicator" id="scroll-indicator">
+                <span class="scroll-indicator__text">SCROLL TO EXPLORE</span>
+                <div class="scroll-indicator__mouse">
+                    <span class="scroll-indicator__wheel"></span>
+                </div>
+                <div class="scroll-indicator__arrow">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
                 </div>
             </div>
         </section>
 
-        <section class="about" id="about">
-            <div class="container about__container">
-                <header class="section-header">
-                    <p class="section-header__eyebrow">ABOUT ME</p>
-                    <h2 class="section-header__title">Building experiences with purpose, not just websites.</h2>
-                    <p class="section-header__description">I'm a passionate frontend developer who enjoys creating responsive, accessible and visually engaging digital experiences. Every project I build focuses on usability, performance and clean architecture.</p>
-                </header>
+        <div class="section-bridge section-bridge--hero-about" aria-hidden="true"></div>
 
-                <div class="about__content">
-                    <div class="about__media">
-                        <img src="assets/images/profile/about-profile.png" alt="Ammlan Rath working" class="about__image">
+        <section class="about" id="about">
+            <div class="about__bg-glow"></div>
+            <div class="about__bg-grid" aria-hidden="true"></div>
+            <div class="container about__container">
+                <div class="about__text" id="about-text">
+                    <span class="about__eyebrow">ABOUT ME</span>
+                    <h2 class="about__heading">
+                        Building experiences with <span class="about__heading-accent">purpose</span>, not just websites.
+                    </h2>
+                    <div class="about__description">
+                        <p>I'm a passionate frontend developer who enjoys creating responsive, accessible, and visually engaging digital experiences. Every project I build focuses on usability, performance, and clean architecture.</p>
+                        <p>Currently pursuing my B.Tech in Computer Science, I refine my skills in frontend engineering, interactive animations, and UI/UX design to bridge the gap between aesthetics and function.</p>
                     </div>
 
-                    <div class="about__details">
-                        <h3>A little about myself</h3>
-                        <p>I'm currently pursuing my B.Tech in Computer Science while continuously improving my frontend development, UI/UX design and problem-solving skills.</p>
-                        <p>Beyond coding, I enjoy learning modern design principles, creating digital products and exploring new technologies that improve user experiences.</p>
+                    <div class="about__highlights">
+                        <article class="about__highlight-card" data-tilt>
+                            <span class="about__highlight-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                                </svg>
+                            </span>
+                            <div class="about__highlight-content">
+                                <span class="about__highlight-label">Education</span>
+                                <span class="about__highlight-value">B.Tech CSE</span>
+                            </div>
+                        </article>
+                        <article class="about__highlight-card" data-tilt>
+                            <span class="about__highlight-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </span>
+                            <div class="about__highlight-content">
+                                <span class="about__highlight-label">Experience</span>
+                                <span class="about__highlight-value">2+ Years</span>
+                            </div>
+                        </article>
+                        <article class="about__highlight-card" data-tilt>
+                            <span class="about__highlight-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </span>
+                            <div class="about__highlight-content">
+                                <span class="about__highlight-label">Based in</span>
+                                <span class="about__highlight-value">Odisha, India</span>
+                            </div>
+                        </article>
+                    </div>
 
-                        <div class="about__actions">
-                            <a href="html/about.html" class="button button--primary">Know More</a>
+                    <div class="about__actions">
+                        <a href="html/about.html" class="button button--primary about__btn">
+                            <span>Know More</span>
+                            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="about__media" id="about-media">
+                    <div class="about__frame">
+                        <span class="about__frame-corner about__frame-corner--tl" aria-hidden="true"></span>
+                        <span class="about__frame-corner about__frame-corner--tr" aria-hidden="true"></span>
+                        <span class="about__frame-corner about__frame-corner--bl" aria-hidden="true"></span>
+                        <span class="about__frame-corner about__frame-corner--br" aria-hidden="true"></span>
+                        <div class="about__orbit-ring" aria-hidden="true"></div>
+
+                        <div class="about__image-glow"></div>
+                        <div class="about__image-wrapper" id="about-image-wrapper" data-tilt>
+                            <img src="assets/images/profile/about-image.png" alt="Ammlan Rath working" class="about__image" loading="lazy" width="480" height="600">
+                            <div class="about__image-shine" aria-hidden="true"></div>
+                        </div>
+
+                        <div class="about__float-badge about__float-badge--top">
+                            <span class="about__float-badge-dot" aria-hidden="true"></span>
+                            <span class="about__float-badge-text">Frontend Developer</span>
+                        </div>
+                        <div class="about__float-badge about__float-badge--bottom">
+                            <span class="about__float-badge-icon" aria-hidden="true">⚡</span>
+                            <span class="about__float-badge-text">Open to Work</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div class="section-bridge" aria-hidden="true"></div>
+
         <section class="skills" id="skills">
+            <div class="skills__canvas" aria-hidden="true">
+                <div class="skills__mesh"></div>
+                <div class="skills__radial-glow"></div>
+                <div class="skills__grid-overlay"></div>
+                <div class="skills__noise"></div>
+                <div class="skills__spotlight" id="skills-spotlight"></div>
+                <svg class="skills__network" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                    <line class="skills__network-line" x1="200" y1="130" x2="600" y2="130" />
+                    <line class="skills__network-line" x1="600" y1="130" x2="1000" y2="130" />
+                    <line class="skills__network-line" x1="200" y1="390" x2="600" y2="390" />
+                    <line class="skills__network-line" x1="600" y1="390" x2="1000" y2="390" />
+                    <line class="skills__network-line skills__network-line--vertical" x1="200" y1="130" x2="200" y2="390" />
+                    <line class="skills__network-line skills__network-line--vertical" x1="600" y1="130" x2="600" y2="390" />
+                    <line class="skills__network-line skills__network-line--vertical" x1="1000" y1="130" x2="1000" y2="390" />
+                    <line class="skills__network-line skills__network-line--diagonal" x1="200" y1="130" x2="600" y2="390" />
+                    <line class="skills__network-line skills__network-line--diagonal" x1="1000" y1="130" x2="600" y2="390" />
+                </svg>
+            </div>
             <div class="container skills__container">
                 <header class="section-header">
                     <p class="section-header__eyebrow">MY SKILLS</p>
                     <h2 class="section-header__title">Technologies I work with.</h2>
-                    <p class="section-header__description">These are some of the technologies and tools I use to design, develop and optimize modern web applications.</p>
+                    <p class="section-header__description">These are some of the technologies and tools I use to design,
+                        develop and optimize modern web applications.</p>
                 </header>
 
-                <div class="skills__grid">
-                    <article class="card skills__card">
+                <div class="skills__grid" id="skills-grid">
+                    <article class="card skills__card" data-skill-card>
                         <img src="assets/images/icons/html.svg" alt="HTML" class="skills__icon">
                         <h3 class="skills__title">HTML5</h3>
                     </article>
-                    <article class="card skills__card">
+                    <article class="card skills__card" data-skill-card>
                         <img src="assets/images/icons/css.svg" alt="CSS" class="skills__icon">
                         <h3 class="skills__title">CSS3</h3>
                     </article>
-                    <article class="card skills__card">
+                    <article class="card skills__card" data-skill-card>
                         <img src="assets/images/icons/javascript.svg" alt="JavaScript" class="skills__icon">
                         <h3 class="skills__title">JavaScript</h3>
                     </article>
-                    <article class="card skills__card">
+                    <article class="card skills__card" data-skill-card>
                         <img src="assets/images/icons/git.svg" alt="Git" class="skills__icon">
                         <h3 class="skills__title">Git</h3>
                     </article>
-                    <article class="card skills__card">
+                    <article class="card skills__card" data-skill-card>
                         <img src="assets/images/icons/github.svg" alt="GitHub" class="skills__icon">
                         <h3 class="skills__title">GitHub</h3>
                     </article>
-                    <article class="card skills__card">
+                    <article class="card skills__card" data-skill-card>
                         <img src="assets/images/icons/figma.svg" alt="Figma" class="skills__icon">
                         <h3 class="skills__title">Figma</h3>
                     </article>
@@ -152,45 +469,53 @@
             </div>
         </section>
 
+        <div class="section-bridge" aria-hidden="true"></div>
+
         <section class="projects" id="projects">
+            <div class="section-ambient section-ambient--soft" aria-hidden="true"></div>
             <div class="container projects__container">
                 <header class="section-header">
                     <p class="section-header__eyebrow">FEATURED PROJECTS</p>
                     <h2 class="section-header__title">Selected work that reflects my skills.</h2>
-                    <p class="section-header__description">A collection of projects that demonstrate my frontend development, UI design and problem-solving abilities.</p>
+                    <p class="section-header__description">A collection of projects that demonstrate my frontend
+                        development, UI design and problem-solving abilities.</p>
                 </header>
 
                 <div class="projects__grid">
-                    <article class="card projects__card">
+                    <article class="card projects__card" data-project-card>
                         <div class="card__media projects__media">
-                            <img src="assets/images/projects/zomato/thumbnail.webp" alt="Zomato Clone">
+                            <img src="assets/images/projects/zomato/thumbnail.webp" alt="Zomato Clone" class="projects__img" loading="lazy">
                         </div>
                         <div class="card__content projects__content">
                             <p class="card__badge projects__category">Frontend Development</p>
                             <h3 class="card__title projects__title">Zomato Landing Page</h3>
-                            <p class="card__description projects__description">A responsive recreation of Zomato's landing page built using semantic HTML and modern CSS.</p>
+                            <p class="card__description projects__description">A responsive recreation of Zomato's
+                                landing page built using semantic HTML and modern CSS.</p>
                             <div class="card__tags projects__tags">
                                 <span class="projects__tech">HTML</span>
                                 <span class="projects__tech">CSS</span>
                             </div>
-                            <a href="html/projects/zomato.html" class="card__link projects__link">View Case Study <span aria-hidden="true">→</span></a>
+                            <a href="html/projects/zomato.html" class="card__link projects__link">View Case Study <span
+                                    aria-hidden="true">→</span></a>
                         </div>
                     </article>
 
-                    <article class="card projects__card">
+                    <article class="card projects__card" data-project-card>
                         <div class="card__media projects__media">
-                            <img src="assets/images/projects/netflix/thumbnail.webp" alt="Netflix Clone">
+                            <img src="assets/images/projects/netflix/thumbnail.webp" alt="Netflix Clone" class="projects__img" loading="lazy">
                         </div>
                         <div class="card__content projects__content">
                             <p class="card__badge projects__category">Frontend Development</p>
                             <h3 class="card__title projects__title">Netflix Clone</h3>
-                            <p class="card__description projects__description">A responsive Netflix-inspired landing page with modern layouts and animations.</p>
+                            <p class="card__description projects__description">A responsive Netflix-inspired landing
+                                page with modern layouts and animations.</p>
                             <div class="card__tags projects__tags">
                                 <span class="projects__tech">HTML</span>
                                 <span class="projects__tech">CSS</span>
                                 <span class="projects__tech">JavaScript</span>
                             </div>
-                            <a href="html/projects/netflix.html" class="card__link projects__link">View Case Study <span aria-hidden="true">→</span></a>
+                            <a href="html/projects/netflix.html" class="card__link projects__link">View Case Study <span
+                                    aria-hidden="true">→</span></a>
                         </div>
                     </article>
                 </div>
@@ -201,12 +526,16 @@
             </div>
         </section>
 
+        <div class="section-bridge" aria-hidden="true"></div>
+
         <section class="blogs" id="blogs">
+            <div class="section-ambient section-ambient--soft" aria-hidden="true"></div>
             <div class="container blogs__container">
                 <header class="section-header">
                     <p class="section-header__eyebrow">FEATURED BLOGS</p>
                     <h2 class="section-header__title">Sharing knowledge through writing.</h2>
-                    <p class="section-header__description">I enjoy documenting what I learn so others can benefit from practical experiences, tutorials and development insights.</p>
+                    <p class="section-header__description">I enjoy documenting what I learn so others can benefit from
+                        practical experiences, tutorials and development insights.</p>
                 </header>
 
                 <div class="blogs__grid">
@@ -220,10 +549,12 @@
                                 <span class="blogs__reading-time">5 min read</span>
                             </div>
                             <h3 class="card__title blogs__title">My First Blog</h3>
-                            <p class="card__description blogs__description">Sharing my journey into frontend development and everything I've learned along the way.</p>
+                            <p class="card__description blogs__description">Sharing my journey into frontend development
+                                and everything I've learned along the way.</p>
                             <div class="blogs__footer">
                                 <span class="blogs__date">July 2026</span>
-                                <a href="html/blogs/first-blog.html" class="card__link blogs__link">Read Article <span aria-hidden="true">→</span></a>
+                                <a href="html/blogs/first-blog.html" class="card__link blogs__link">Read Article <span
+                                        aria-hidden="true">→</span></a>
                             </div>
                         </div>
                     </article>
@@ -238,10 +569,12 @@
                                 <span class="blogs__reading-time">8 min read</span>
                             </div>
                             <h3 class="card__title blogs__title">Beginner's Guide to GSAP</h3>
-                            <p class="card__description blogs__description">Understanding modern web animations using GSAP with simple examples.</p>
+                            <p class="card__description blogs__description">Understanding modern web animations using
+                                GSAP with simple examples.</p>
                             <div class="blogs__footer">
                                 <span class="blogs__date">July 2026</span>
-                                <a href="html/blogs/gsap-guide.html" class="card__link blogs__link">Read Article <span aria-hidden="true">→</span></a>
+                                <a href="html/blogs/gsap-guide.html" class="card__link blogs__link">Read Article <span
+                                        aria-hidden="true">→</span></a>
                             </div>
                         </div>
                     </article>
@@ -281,27 +614,38 @@
             </div>
         </section>
 
+        <div class="section-bridge" aria-hidden="true"></div>
+
         <section class="resume" id="resume">
+            <div class="section-ambient section-ambient--soft" aria-hidden="true"></div>
             <div class="container resume__container">
                 <div class="resume__card">
                     <div class="resume__content">
                         <p class="section-header__eyebrow">RESUME</p>
                         <h2 class="resume__title">Want a detailed overview of my experience?</h2>
-                        <p class="resume__text">Download my latest resume to explore my education, projects, skills and achievements.</p>
+                        <p class="resume__text">Download my latest resume to explore my education, projects, skills and
+                            achievements.</p>
                     </div>
                     <div class="resume__actions">
-                        <a href="assets/resume/Ammlan_Rath_Resume.pdf" class="button button--primary">Download Resume</a>
+                        <a href="assets/resume/Ammlan_Rath_Resume.pdf" class="button button--primary">Download
+                            Resume</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div class="section-bridge section-bridge--finale" aria-hidden="true"></div>
+
         <section class="cta" id="hire">
+            <div class="cta__canvas" aria-hidden="true">
+                <div class="cta__finale-glow"></div>
+            </div>
             <div class="container cta__container">
                 <div class="cta__card">
                     <p class="section-header__eyebrow">LET'S WORK TOGETHER</p>
                     <h2 class="cta__title">Have an idea? Let's turn it into reality.</h2>
-                    <p class="cta__description">Whether you're looking for a responsive website, frontend developer or UI improvements, I'd love to collaborate.</p>
+                    <p class="cta__description">Whether you're looking for a responsive website, frontend developer or
+                        UI improvements, I'd love to collaborate.</p>
                     <div class="cta__buttons">
                         <a href="html/hire.html" class="button button--primary">Hire Me</a>
                         <a href="html/contact.html" class="button button--secondary">Contact Me</a>
@@ -311,11 +655,15 @@
         </section>
 
         <section class="connect" id="connect">
+            <div class="connect__canvas" aria-hidden="true">
+                <div class="connect__horizon-glow"></div>
+            </div>
             <div class="container connect__container">
                 <header class="section-header">
                     <p class="section-header__eyebrow">CONNECT</p>
                     <h2 class="section-header__title">Let's stay connected.</h2>
-                    <p class="section-header__description">Whether you have a project idea, a job opportunity, or simply want to connect, I'm always open to meaningful conversations.</p>
+                    <p class="section-header__description">Whether you have a project idea, a job opportunity, or simply
+                        want to connect, I'm always open to meaningful conversations.</p>
                 </header>
 
                 <div class="connect__content">
@@ -374,7 +722,8 @@
             <div class="footer__top">
                 <div class="footer__brand">
                     <a href="index.html" class="footer__logo">AMMLAN RATH</a>
-                    <p class="footer__description">Frontend Developer dedicated to building premium, responsive and accessible web experiences.</p>
+                    <p class="footer__description">Frontend Developer dedicated to building premium, responsive and
+                        accessible web experiences.</p>
                 </div>
 
                 <div class="footer__nav">
@@ -423,7 +772,14 @@
         </div>
     </footer>
 
+    <!-- External Animation Libraries & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+
     <script src="assets/js/global.js"></script>
     <script src="assets/js/home.js"></script>
 </body>
+
 </html>
