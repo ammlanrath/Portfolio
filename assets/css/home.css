@@ -200,6 +200,25 @@ main > section[id] {
     animation-play-state: paused !important;
 }
 
+.canvas-ambient__blob,
+.ambient-glow,
+.mesh-glow,
+.hero__stage-glow,
+.hero__orbit-ring,
+.hero__orbit-path,
+.orbit-planet,
+.about__bg-glow,
+.about__orbit-ring,
+.about__float-badge,
+.skills__mesh,
+.skills__network-line,
+.cta__finale-glow,
+.connect__horizon-glow,
+#scroll-indicator,
+#scroll-indicator * {
+    animation: none !important;
+}
+
 /* JS-Active Reveal Initial States (Prevents layout flash) */
 .js-active .about__eyebrow,
 .js-active .about__heading,

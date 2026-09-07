@@ -2542,7 +2542,9 @@ Portfolio.MasterLoop = {
 
     callbacks: [],
 
-    isActive: true,
+    isActive: false,
+
+    initialized: false,
 
     animationFrameId: null,
 
@@ -2552,9 +2554,7 @@ Portfolio.MasterLoop = {
 
         this.tick = this.tick.bind(this);
 
-        this.isActive = true;
-
-        this.animationFrameId = requestAnimationFrame(this.tick);
+        this.initialized = true;
 
         // Listen to visibility change to pause/resume
         document.addEventListener("visibilitychange", () => {
@@ -2580,11 +2580,15 @@ Portfolio.MasterLoop = {
 
         this.callbacks.sort((a, b) => a.priority - b.priority);
 
+        this.resume();
+
     },
 
     unregister(name) {
 
         this.callbacks = this.callbacks.filter(c => c.name !== name);
+
+        if (!this.callbacks.length) this.pause();
 
     },
 
@@ -2604,7 +2608,7 @@ Portfolio.MasterLoop = {
 
     resume() {
 
-        if (!this.isActive) {
+        if (!this.isActive && this.callbacks.length) {
 
             this.isActive = true;
 
@@ -2616,7 +2620,10 @@ Portfolio.MasterLoop = {
 
     tick(time) {
 
-        if (!this.isActive) return;
+        if (!this.isActive || !this.callbacks.length) {
+            this.pause();
+            return;
+        }
 
         for (let i = 0; i < this.callbacks.length; i++) {
 
@@ -2641,6 +2648,8 @@ Portfolio.MasterLoop = {
         this.pause();
 
         this.callbacks = [];
+
+        this.initialized = false;
 
     }
 

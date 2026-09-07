@@ -12,10 +12,14 @@
     <meta property="og:title" content="Ammlan Rath | Portfolio">
     <meta property="og:description" content="Frontend Developer Portfolio">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/images/backgrounds/og-home.jpg">
-    <meta property="og:url" content="">
+    <meta property="og:image" content="https://ammlan.in/assets/images/profile/profile-picture.png">
+    <meta property="og:url" content="https://ammlan.in/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ammlan Rath | Portfolio">
+    <meta name="twitter:description" content="Frontend Developer Portfolio">
+    <meta name="twitter:image" content="https://ammlan.in/assets/images/profile/profile-picture.png">
+    <link rel="canonical" href="https://ammlan.in/">
     <title>Ammlan Rath | Frontend Developer</title>
-    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/home.css">
 </head>
@@ -45,18 +49,17 @@
                 <ul class="navbar__list">
                     <li class="navbar__item"><a href="index.html" class="navbar__link navbar__link--active">Home</a>
                     </li>
-                    <li class="navbar__item"><a href="html/about.html" class="navbar__link">About</a></li>
-                    <li class="navbar__item"><a href="html/education.html" class="navbar__link">Education</a></li>
-                    <li class="navbar__item"><a href="html/project.html" class="navbar__link">Projects</a></li>
-                    <li class="navbar__item"><a href="html/blog.html" class="navbar__link">Blogs</a></li>
-                    <li class="navbar__item"><a href="html/hire.html" class="navbar__link">Hire Me</a></li>
-                    <li class="navbar__item"><a href="html/contact.html" class="navbar__link">Contact</a></li>
+                    <li class="navbar__item"><a href="#about" class="navbar__link">About</a></li>
+                    <li class="navbar__item"><a href="#projects" class="navbar__link">Projects</a></li>
+                    <li class="navbar__item"><a href="#blogs" class="navbar__link">Blogs</a></li>
+                    <li class="navbar__item"><a href="#hire" class="navbar__link">Hire Me</a></li>
+                    <li class="navbar__item"><a href="#connect" class="navbar__link">Contact</a></li>
                 </ul>
             </nav>
 
             <div class="header__actions">
-                <a href="assets/resume/Ammlan_Rath_Resume.pdf" class="button button--secondary">Resume</a>
-                <a href="html/contact.html" class="button button--primary">Let's Talk</a>
+                <a href="#connect" class="button button--secondary">Resume</a>
+                <a href="#connect" class="button button--primary">Let's Talk</a>
                 <button class="menu-button" aria-label="Open Navigation" aria-expanded="false"
                     aria-controls="mobile-navigation">☰</button>
             </div>
@@ -66,12 +69,11 @@
     <nav class="mobile-navigation" id="mobile-navigation" aria-label="Mobile Navigation">
         <ul class="mobile-navigation__list">
             <li><a href="index.html">Home</a></li>
-            <li><a href="html/about.html">About</a></li>
-            <li><a href="html/education.html">Education</a></li>
-            <li><a href="html/project.html">Projects</a></li>
-            <li><a href="html/blog.html">Blogs</a></li>
-            <li><a href="html/hire.html">Hire Me</a></li>
-            <li><a href="html/contact.html">Contact</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#hire">Hire Me</a></li>
+            <li><a href="#connect">Contact</a></li>
         </ul>
     </nav>
 
@@ -115,7 +117,7 @@
 
                     <!-- Primary buttons -->
                     <div class="hero__buttons">
-                        <a href="html/project.html" class="button button--primary hero__btn hero__btn--primary">
+                        <a href="#projects" class="button button--primary hero__btn hero__btn--primary">
                             <span>View My Work</span>
                             <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2.5">
@@ -123,7 +125,7 @@
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
                         </a>
-                        <a href="html/hire.html" class="button button--secondary hero__btn hero__btn--secondary">
+                        <a href="#hire" class="button button--secondary hero__btn hero__btn--secondary">
                             <span>Hire Me</span>
                         </a>
                     </div>
@@ -132,7 +134,7 @@
                     <div class="hero__socials-section">
                         <p class="hero__socials-heading">Connect with me</p>
                         <div class="hero__social-row">
-                            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer"
+                            <a href="#connect" class="social-btn" aria-label="WhatsApp profile link pending"
                                 aria-label="WhatsApp">
                                 <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -140,7 +142,7 @@
                                         d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                                 </svg>
                             </a>
-                            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer"
+                            <a href="#connect" class="social-btn" aria-label="Instagram profile link pending"
                                 aria-label="Instagram">
                                 <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -149,7 +151,7 @@
                                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                                 </svg>
                             </a>
-                            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer"
+                            <a href="#connect" class="social-btn" aria-label="LinkedIn profile link pending"
                                 aria-label="LinkedIn">
                                 <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -160,7 +162,7 @@
                                     <circle cx="4" cy="4" r="2"></circle>
                                 </svg>
                             </a>
-                            <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer"
+                            <a href="#connect" class="social-btn" aria-label="GitHub profile link pending"
                                 aria-label="GitHub">
                                 <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -374,7 +376,7 @@
                     </div>
 
                     <div class="about__actions">
-                        <a href="html/about.html" class="button button--primary about__btn">
+                        <a href="#about" class="button button--primary about__btn">
                             <span>Know More</span>
                             <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -442,27 +444,27 @@
 
                 <div class="skills__grid" id="skills-grid">
                     <article class="card skills__card" data-skill-card>
-                        <img src="assets/images/icons/html.svg" alt="HTML" class="skills__icon">
+                        <span class="skills__icon" aria-hidden="true">HTML</span>
                         <h3 class="skills__title">HTML5</h3>
                     </article>
                     <article class="card skills__card" data-skill-card>
-                        <img src="assets/images/icons/css.svg" alt="CSS" class="skills__icon">
+                        <span class="skills__icon" aria-hidden="true">CSS</span>
                         <h3 class="skills__title">CSS3</h3>
                     </article>
                     <article class="card skills__card" data-skill-card>
-                        <img src="assets/images/icons/javascript.svg" alt="JavaScript" class="skills__icon">
+                        <span class="skills__icon" aria-hidden="true">JS</span>
                         <h3 class="skills__title">JavaScript</h3>
                     </article>
                     <article class="card skills__card" data-skill-card>
-                        <img src="assets/images/icons/git.svg" alt="Git" class="skills__icon">
+                        <span class="skills__icon" aria-hidden="true">Git</span>
                         <h3 class="skills__title">Git</h3>
                     </article>
                     <article class="card skills__card" data-skill-card>
-                        <img src="assets/images/icons/github.svg" alt="GitHub" class="skills__icon">
+                        <span class="skills__icon" aria-hidden="true">GH</span>
                         <h3 class="skills__title">GitHub</h3>
                     </article>
                     <article class="card skills__card" data-skill-card>
-                        <img src="assets/images/icons/figma.svg" alt="Figma" class="skills__icon">
+                        <span class="skills__icon" aria-hidden="true">Figma</span>
                         <h3 class="skills__title">Figma</h3>
                     </article>
                 </div>
@@ -484,7 +486,7 @@
                 <div class="projects__grid">
                     <article class="card projects__card" data-project-card>
                         <div class="card__media projects__media">
-                            <img src="assets/images/projects/zomato/thumbnail.webp" alt="Zomato Clone" class="projects__img" loading="lazy">
+                            <img src="assets/images/profile/portfolio-image.png" alt="Zomato Clone project preview" class="projects__img" loading="lazy" decoding="async">
                         </div>
                         <div class="card__content projects__content">
                             <p class="card__badge projects__category">Frontend Development</p>
@@ -495,14 +497,14 @@
                                 <span class="projects__tech">HTML</span>
                                 <span class="projects__tech">CSS</span>
                             </div>
-                            <a href="html/projects/zomato.html" class="card__link projects__link">View Case Study <span
+                            <a href="#projects" class="card__link projects__link">View Case Study <span
                                     aria-hidden="true">→</span></a>
                         </div>
                     </article>
 
                     <article class="card projects__card" data-project-card>
                         <div class="card__media projects__media">
-                            <img src="assets/images/projects/netflix/thumbnail.webp" alt="Netflix Clone" class="projects__img" loading="lazy">
+                            <img src="assets/images/profile/portfolio-image.png" alt="Netflix Clone project preview" class="projects__img" loading="lazy" decoding="async">
                         </div>
                         <div class="card__content projects__content">
                             <p class="card__badge projects__category">Frontend Development</p>
@@ -514,14 +516,14 @@
                                 <span class="projects__tech">CSS</span>
                                 <span class="projects__tech">JavaScript</span>
                             </div>
-                            <a href="html/projects/netflix.html" class="card__link projects__link">View Case Study <span
+                            <a href="#projects" class="card__link projects__link">View Case Study <span
                                     aria-hidden="true">→</span></a>
                         </div>
                     </article>
                 </div>
 
                 <div class="projects__actions">
-                    <a href="html/project.html" class="button button--primary">View All Projects</a>
+                    <a href="#projects" class="button button--primary">View All Projects</a>
                 </div>
             </div>
         </section>
@@ -541,7 +543,7 @@
                 <div class="blogs__grid">
                     <article class="card blogs__card">
                         <div class="card__media blogs__media">
-                            <img src="assets/images/blogs/first-blog/cover.webp" alt="First Blog" loading="lazy" decoding="async">
+                            <img src="assets/images/profile/about-profile.jpeg" alt="First Blog" loading="lazy" decoding="async">
                         </div>
                         <div class="card__content blogs__content">
                             <div class="blogs__meta">
@@ -553,7 +555,7 @@
                                 and everything I've learned along the way.</p>
                             <div class="blogs__footer">
                                 <span class="blogs__date">July 2026</span>
-                                <a href="html/blogs/first-blog.html" class="card__link blogs__link">Read Article <span
+                                <a href="#blogs" class="card__link blogs__link">Read Article <span
                                         aria-hidden="true">→</span></a>
                             </div>
                         </div>
@@ -561,7 +563,7 @@
 
                     <article class="card blogs__card">
                         <div class="card__media blogs__media">
-                            <img src="assets/images/blogs/gsap-guide/cover.webp" alt="GSAP Guide" loading="lazy" decoding="async">
+                            <img src="assets/images/profile/about-profile.jpeg" alt="GSAP Guide" loading="lazy" decoding="async">
                         </div>
                         <div class="card__content blogs__content">
                             <div class="blogs__meta">
@@ -573,7 +575,7 @@
                                 GSAP with simple examples.</p>
                             <div class="blogs__footer">
                                 <span class="blogs__date">July 2026</span>
-                                <a href="html/blogs/gsap-guide.html" class="card__link blogs__link">Read Article <span
+                                <a href="#blogs" class="card__link blogs__link">Read Article <span
                                         aria-hidden="true">→</span></a>
                             </div>
                         </div>
@@ -581,7 +583,7 @@
                 </div>
 
                 <div class="blogs__actions">
-                    <a href="html/blog.html" class="button button--primary">View All Blogs</a>
+                    <a href="#blogs" class="button button--primary">View All Blogs</a>
                 </div>
             </div>
         </section>
@@ -627,8 +629,7 @@
                             achievements.</p>
                     </div>
                     <div class="resume__actions">
-                        <a href="assets/resume/Ammlan_Rath_Resume.pdf" class="button button--primary">Download
-                            Resume</a>
+                        <a href="#connect" class="button button--primary">Request Resume</a>
                     </div>
                 </div>
             </div>
@@ -647,8 +648,8 @@
                     <p class="cta__description">Whether you're looking for a responsive website, frontend developer or
                         UI improvements, I'd love to collaborate.</p>
                     <div class="cta__buttons">
-                        <a href="html/hire.html" class="button button--primary">Hire Me</a>
-                        <a href="html/contact.html" class="button button--secondary">Contact Me</a>
+                        <a href="#hire" class="button button--primary">Hire Me</a>
+                        <a href="#connect" class="button button--secondary">Contact Me</a>
                     </div>
                 </div>
             </div>
@@ -668,28 +669,28 @@
 
                 <div class="connect__content">
                     <div class="connect__socials">
-                        <a href="#" class="card connect__card" target="_blank" rel="noopener noreferrer">
+                        <a href="#connect" class="card connect__card" aria-label="WhatsApp profile link pending">
                             <span class="connect__icon" aria-hidden="true">✉</span>
                             <div>
                                 <h3 class="connect__platform">WhatsApp</h3>
                                 <p class="connect__username">Let's have a quick conversation.</p>
                             </div>
                         </a>
-                        <a href="#" class="card connect__card" target="_blank" rel="noopener noreferrer">
+                        <a href="#connect" class="card connect__card" aria-label="LinkedIn profile link pending">
                             <span class="connect__icon" aria-hidden="true">in</span>
                             <div>
                                 <h3 class="connect__platform">LinkedIn</h3>
                                 <p class="connect__username">Connect professionally.</p>
                             </div>
                         </a>
-                        <a href="#" class="card connect__card" target="_blank" rel="noopener noreferrer">
+                        <a href="#connect" class="card connect__card" aria-label="GitHub profile link pending">
                             <span class="connect__icon" aria-hidden="true">⌘</span>
                             <div>
                                 <h3 class="connect__platform">GitHub</h3>
                                 <p class="connect__username">Explore my repositories.</p>
                             </div>
                         </a>
-                        <a href="#" class="card connect__card" target="_blank" rel="noopener noreferrer">
+                        <a href="#connect" class="card connect__card" aria-label="Instagram profile link pending">
                             <span class="connect__icon" aria-hidden="true">◎</span>
                             <div>
                                 <h3 class="connect__platform">Instagram</h3>
@@ -709,7 +710,7 @@
                         </div>
                         <div class="connect__detail">
                             <h3 class="connect__label">Email</h3>
-                            <p class="connect__value">your-email@example.com</p>
+                            <p class="connect__value">Email available on request</p>
                         </div>
                     </div>
                 </div>
@@ -731,32 +732,30 @@
                         <h3 class="footer__heading">Navigation</h3>
                         <ul class="footer__list">
                             <li><a href="index.html" class="footer__link">Home</a></li>
-                            <li><a href="html/about.html" class="footer__link">About</a></li>
-                            <li><a href="html/education.html" class="footer__link">Education</a></li>
-                            <li><a href="html/project.html" class="footer__link">Projects</a></li>
-                            <li><a href="html/blog.html" class="footer__link">Blogs</a></li>
-                            <li><a href="html/hire.html" class="footer__link">Hire Me</a></li>
-                            <li><a href="html/contact.html" class="footer__link">Contact</a></li>
+                            <li><a href="#about" class="footer__link">About</a></li>
+                            <li><a href="#projects" class="footer__link">Projects</a></li>
+                            <li><a href="#blogs" class="footer__link">Blogs</a></li>
+                            <li><a href="#hire" class="footer__link">Hire Me</a></li>
+                            <li><a href="#connect" class="footer__link">Contact</a></li>
                         </ul>
                     </div>
 
                     <div class="footer__column">
                         <h3 class="footer__heading">Resources</h3>
                         <ul class="footer__list">
-                            <li><a href="assets/resume/Ammlan_Rath_Resume.pdf" class="footer__link">Resume</a></li>
-                            <li><a href="html/project.html" class="footer__link">Case Studies</a></li>
-                            <li><a href="html/blog.html" class="footer__link">Articles</a></li>
-                            <li><a href="sitemap.xml" class="footer__link">Sitemap</a></li>
+                            <li><a href="#connect" class="footer__link">Resume</a></li>
+                            <li><a href="#projects" class="footer__link">Case Studies</a></li>
+                            <li><a href="#blogs" class="footer__link">Articles</a></li>
                         </ul>
                     </div>
 
                     <div class="footer__column">
                         <h3 class="footer__heading">Social</h3>
                         <ul class="footer__list">
-                            <li><a href="#" class="footer__link">WhatsApp</a></li>
-                            <li><a href="#" class="footer__link">LinkedIn</a></li>
-                            <li><a href="#" class="footer__link">GitHub</a></li>
-                            <li><a href="#" class="footer__link">Instagram</a></li>
+                            <li><a href="#connect" class="footer__link">WhatsApp</a></li>
+                            <li><a href="#connect" class="footer__link">LinkedIn</a></li>
+                            <li><a href="#connect" class="footer__link">GitHub</a></li>
+                            <li><a href="#connect" class="footer__link">Instagram</a></li>
                         </ul>
                     </div>
                 </div>
@@ -765,8 +764,8 @@
             <div class="footer__bottom">
                 <p class="footer__copyright">© 2026 Ammlan Rath. All Rights Reserved.</p>
                 <ul class="footer__legal">
-                    <li><a href="#" class="footer__link">Privacy Policy</a></li>
-                    <li><a href="#" class="footer__link">Terms &amp; Conditions</a></li>
+                    <li><span class="footer__link">Privacy Policy</span></li>
+                    <li><span class="footer__link">Terms &amp; Conditions</span></li>
                 </ul>
             </div>
         </div>

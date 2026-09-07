@@ -89,7 +89,9 @@ const Home = {
         sectionLightTargetX: 50,
         sectionLightTargetY: 50,
         lastAmbientUpdate: 0,
-        lastPortraitUpdate: 0
+        lastPortraitUpdate: 0,
+        interactionLoopActive: false,
+        interactionStopTimer: null
     },
 
     /* ----------------------------------------------------------------------
@@ -140,11 +142,6 @@ const Home = {
             this.initExperience();
             
             // Register tick loop to MasterLoop
-            if (typeof Portfolio !== "undefined" && Portfolio.MasterLoop) {
-                Portfolio.MasterLoop.register("homeMasterTick", (time) => {
-                    this.update(time);
-                }, 20);
-            }
         } else {
             this.handleReducedMotion();
         }
@@ -320,10 +317,16 @@ const Home = {
         const setMouseActive = () => {
             self.state.mouseIdle = false;
             self.state.lightNeedsUpdate = true;
+            self.startInteractionLoop();
             clearTimeout(idleTimeout);
             idleTimeout = setTimeout(() => {
                 self.state.mouseIdle = true;
             }, 1500); // 1.5s idle threshold
+
+            clearTimeout(self.state.interactionStopTimer);
+            self.state.interactionStopTimer = setTimeout(() => {
+                self.stopInteractionLoop();
+            }, 350);
         };
 
         window.addEventListener("mousemove", (e) => {
@@ -345,7 +348,22 @@ const Home = {
             }
             document.documentElement.classList.add("custom-cursor-hidden-page");
             self.state.mouseIdle = true;
+            self.stopInteractionLoop();
         });
+    },
+
+    startInteractionLoop() {
+        if (this.state.interactionLoopActive || typeof Portfolio === "undefined" || !Portfolio.MasterLoop) return;
+
+        this.state.interactionLoopActive = true;
+        Portfolio.MasterLoop.register("homeInteraction", (time) => this.update(time), 20);
+    },
+
+    stopInteractionLoop() {
+        if (!this.state.interactionLoopActive || typeof Portfolio === "undefined" || !Portfolio.MasterLoop) return;
+
+        this.state.interactionLoopActive = false;
+        Portfolio.MasterLoop.unregister("homeInteraction");
     },
 
     /* ----------------------------------------------------------------------
@@ -825,16 +843,8 @@ const Home = {
                 if (!sectionData) return;
 
                 if (entry.isIntersecting) {
-                    sectionData.tl.restart();
-                } else {
-                    sectionData.tl.pause(0);
-                    sectionData.elements.forEach(item => {
-                        gsap.set(item.el, {
-                            opacity: 0,
-                            y: item.order >= 3 ? 32 : 24,
-                            scale: item.order === 5 ? 0.97 : 1
-                        });
-                    });
+                    sectionData.tl.play();
+                    observer.unobserve(entry.target);
                 }
             });
         }, {
@@ -856,9 +866,7 @@ const Home = {
                     if (this.state.heroTimeline) {
                         if (entry.isIntersecting) {
                             this.state.heroTimeline.play();
-                        } else {
-                            // Reset Hero timeline when scrolled out of view
-                            this.state.heroTimeline.progress(0).pause();
+                            heroObserver.unobserve(entry.target);
                         }
                     }
                 });
@@ -904,7 +912,6 @@ const Home = {
        Premium experience layer — ambient, skills, projects, section pause
     ---------------------------------------------------------------------- */
     initExperience() {
-        this.initSectionPause();
         this.initSkillsExperience();
         this.initProjectParallax();
         this.initAboutParallax();
@@ -1183,25 +1190,12 @@ const Home = {
             self.state.lightNeedsUpdate = coreMoving || wideMoving;
         }
 
-        // Background effects do not need to run at the display refresh rate.
-        const ambientFrameReady = time - self.state.lastAmbientUpdate >= 50;
-        if (self.elements.ambientBlobs.length && ambientFrameReady) {
-            self.updateAmbientCanvas(time);
-            self.state.lastAmbientUpdate = time;
-        }
-
         if (self.state.skillsInView && !self.state.mouseIdle) {
             self.updateSkillsSpotlight(targetX, targetY);
         }
 
         // 2. HERO ONLY RUNTIME (Skip if hero is not in view)
         if (self.state.heroInView) {
-            
-            // Portrait Canvas particles update
-            if (self.state.portraitParticlesUpdate && time - self.state.lastPortraitUpdate >= 33) {
-                self.state.portraitParticlesUpdate();
-                self.state.lastPortraitUpdate = time;
-            }
             
             // Mouse Parallax on the entire stage (Skip if mouse is idle and already converged)
             const stage = self.elements.stage;
@@ -1221,13 +1215,6 @@ const Home = {
                 }
             }
 
-            // Gentle floating vertical displacement
-            const floatY = Math.sin(time * 0.0022) * 2.5;
-            const wrapper = self.elements.portraitWrapper;
-            if (wrapper) {
-                wrapper.style.transform = `translate(-50%, -50%) translate3d(0, ${floatY}px, 0) scale(${self.state.portraitHovered ? 1.03 : 1})`;
-            }
-            
             // Card Tilts (Only update active cards that are currently hovered or returning to center)
             if (self.state.activeCards.size > 0) {
                 self.state.activeCards.forEach(card => {
