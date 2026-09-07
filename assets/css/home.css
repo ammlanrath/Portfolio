@@ -1110,18 +1110,21 @@ main > section[id] {
     position: relative;
     height: clamp(2rem, 3.5vw, 2.8rem);
     width: 100%;
-    display: flex;
-    align-items: center;
     overflow: hidden;
 }
 
 .hero__role-text {
+    position: absolute;
+    top: 50%;
+    left: 0;
     font-family: var(--ff-heading);
     font-size: clamp(1.4rem, 2.5vw, 2.2rem);
     font-weight: 800;
     color: var(--clr-white);
+    line-height: 1;
     white-space: nowrap;
     text-transform: uppercase;
+    transform: translateY(-50%);
 }
 
 .hero__role-underline {
