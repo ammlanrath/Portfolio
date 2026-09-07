@@ -25,8 +25,8 @@ const Home = {
             stagger: 0.1,
             ease: "power3.out",
             scrollEase: "none",
-            heroParallax: 0.8,
-            projectParallax: 4
+            heroParallax: 2.0,
+            projectParallax: 12
         }
     },
 
@@ -992,14 +992,16 @@ const Home = {
                 if (!media) return;
 
                 gsap.fromTo(media,
-                    { clipPath: "inset(0 0 100% 0 round 16px)" },
+                    { clipPath: "inset(0 0 25% 0 round 16px)", opacity: 0.8, scale: 0.95 },
                     {
                         clipPath: "inset(0 0 0% 0 round 16px)",
+                        opacity: 1,
+                        scale: 1,
                         duration: motion.imageRevealDuration,
                         ease: motion.ease,
                         scrollTrigger: {
                             trigger: card,
-                            start: "top 78%",
+                            start: "top 85%",
                             once: true
                         }
                     }
@@ -1133,27 +1135,57 @@ const Home = {
         const media = document.getElementById("about-media");
         if (!about || !text || !media) return;
 
-        gsap.fromTo(text, { y: 36 }, {
-            y: -18,
+        const heading = about.querySelector(".about__heading");
+        const highlightCards = about.querySelectorAll(".about__highlight-card");
+
+        if (heading) {
+            gsap.fromTo(heading, { y: 20 }, {
+                y: -10,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: about,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 0.5
+                }
+            });
+        }
+
+        gsap.fromTo(text, { y: 40 }, {
+            y: -20,
             ease: "none",
             scrollTrigger: {
                 trigger: about,
                 start: "top bottom",
                 end: "bottom top",
-                scrub: 0.55
+                scrub: 0.65
             }
         });
 
-        gsap.fromTo(media, { y: 52 }, {
-            y: -28,
+        gsap.fromTo(media, { y: 60 }, {
+            y: -35,
             ease: "none",
             scrollTrigger: {
                 trigger: about,
                 start: "top bottom",
                 end: "bottom top",
-                scrub: 0.75
+                scrub: 0.8
             }
         });
+
+        if (highlightCards.length) {
+            gsap.fromTo(highlightCards, { y: 80 }, {
+                y: -50,
+                ease: "none",
+                stagger: 0.05,
+                scrollTrigger: {
+                    trigger: about,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1.0
+                }
+            });
+        }
     },
 
     initSectionLighting() {
@@ -1409,6 +1441,13 @@ const Home = {
                     meshGlow1.style.transform = `translate3d(${self.state.meshShiftX}px, ${self.state.meshShiftY}px, 0) translate(-50%, -50%)`;
                     meshGlow2.style.transform = `translate3d(${-self.state.meshShiftX}px, ${-self.state.meshShiftY}px, 0)`;
                 }
+            }
+
+            if (typeof self.updateAmbientCanvas === "function") {
+                self.updateAmbientCanvas(time);
+            }
+            if (typeof self.state.portraitParticlesUpdate === "function") {
+                self.state.portraitParticlesUpdate();
             }
         }
 
