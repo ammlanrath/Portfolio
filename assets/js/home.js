@@ -87,7 +87,9 @@ const Home = {
         sectionLightX: 50,
         sectionLightY: 50,
         sectionLightTargetX: 50,
-        sectionLightTargetY: 50
+        sectionLightTargetY: 50,
+        lastAmbientUpdate: 0,
+        lastPortraitUpdate: 0
     },
 
     /* ----------------------------------------------------------------------
@@ -1181,9 +1183,11 @@ const Home = {
             self.state.lightNeedsUpdate = coreMoving || wideMoving;
         }
 
-        // Global ambient canvas — transform only, runs at low cost
-        if (self.elements.ambientBlobs.length) {
+        // Background effects do not need to run at the display refresh rate.
+        const ambientFrameReady = time - self.state.lastAmbientUpdate >= 50;
+        if (self.elements.ambientBlobs.length && ambientFrameReady) {
             self.updateAmbientCanvas(time);
+            self.state.lastAmbientUpdate = time;
         }
 
         if (self.state.skillsInView && !self.state.mouseIdle) {
@@ -1194,8 +1198,9 @@ const Home = {
         if (self.state.heroInView) {
             
             // Portrait Canvas particles update
-            if (self.state.portraitParticlesUpdate) {
+            if (self.state.portraitParticlesUpdate && time - self.state.lastPortraitUpdate >= 33) {
                 self.state.portraitParticlesUpdate();
+                self.state.lastPortraitUpdate = time;
             }
             
             // Mouse Parallax on the entire stage (Skip if mouse is idle and already converged)
