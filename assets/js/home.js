@@ -135,6 +135,12 @@ const Home = {
         this.cacheDOM();
         this.bindEvents();
         
+        if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || typeof Portfolio === "undefined" || !Portfolio.MasterLoop) {
+            console.warn("Home module: Dependencies not ready. Retrying in 100ms...");
+            setTimeout(() => this.init(), 100);
+            return;
+        }
+        
         // Respect reduced motion
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches || (typeof Portfolio !== "undefined" && Portfolio.State?.reducedMotion);
 
@@ -145,12 +151,19 @@ const Home = {
             this.initCanvasPortrait();
             this.initRoleLoop();
             this.initInteractiveDial();
+            this.initSectionLighting();
+            this.initCard3DTilt();
+            this.initCanvasPortrait();
+            this.initAmbientCanvas();
+            this.registerCanvasLoops();
+            
             this.initPageLoadAnimation();
             this.initScrollReveal();
             this.initAboutSection();
             this.initExperience();
             
-            // Register tick loop to MasterLoop
+            // Start interaction immediately
+            this.startInteractionLoop();
         } else {
             this.handleReducedMotion();
         }
@@ -1120,9 +1133,10 @@ const Home = {
                 const rect = card.getBoundingClientRect();
                 const x = (e.clientX - rect.left) / rect.width - 0.5;
                 const y = (e.clientY - rect.top) / rect.height - 0.5;
-                self.state.projectImgX = x * 14;
-                self.state.projectImgY = y * 10;
-                img.style.transform = `translate3d(${self.state.projectImgX}px, ${self.state.projectImgY}px, 0) scale(1.06)`;
+                // Removed direct transform that conflicts with GSAP scroll parallax
+                // self.state.projectImgX = x * 14;
+                // self.state.projectImgY = y * 10;
+                // img.style.transform = `translate3d(${self.state.projectImgX}px, ${self.state.projectImgY}px, 0) scale(1.06)`;
             });
         });
     },
@@ -1443,12 +1457,22 @@ const Home = {
                 }
             }
 
-            if (typeof self.updateAmbientCanvas === "function") {
-                self.updateAmbientCanvas(time);
-            }
-            if (typeof self.state.portraitParticlesUpdate === "function") {
-                self.state.portraitParticlesUpdate();
-            }
+        }
+    },
+
+    registerCanvasLoops() {
+        if (typeof Portfolio !== "undefined" && Portfolio.MasterLoop) {
+            Portfolio.MasterLoop.register("ambientCanvas", (time) => {
+                if (this.state.heroInView && typeof this.updateAmbientCanvas === "function") {
+                    this.updateAmbientCanvas(time);
+                }
+            }, 30);
+            
+            Portfolio.MasterLoop.register("portraitParticles", () => {
+                if (this.state.heroInView && typeof this.state.portraitParticlesUpdate === "function") {
+                    this.state.portraitParticlesUpdate();
+                }
+            }, 30);
         }
 
         // 3. ABOUT SECTION — image tilt and highlight cards

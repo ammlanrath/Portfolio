@@ -432,35 +432,7 @@ Portfolio.DOM = {
 
 };
 
-/* ==========================================================================
-                                INITIALIZATION
-============================================================================= */
-
-Portfolio.init = () => {
-
-    Portfolio.Logger.info("Initializing Portfolio...");
-
-    Portfolio.Features.detect();
-
-    Portfolio.DOM.cache();
-
-    Portfolio.State.pageLoaded = true;
-
-    Portfolio.State.pageReady = true;
-
-    Portfolio.Logger.success("Portfolio initialized successfully.");
-
-};
-
-/* ==========================================================================
-                                APPLICATION START
-============================================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    Portfolio.init();
-
-});
+/* Initial implementation moved or replaced by final phase */
 
 /* ==========================================================================
                             GLOBAL JAVASCRIPT
@@ -815,11 +787,7 @@ Portfolio.destroy = () => {
 };
 
 /* ==========================================================================
-                        UPDATE INITIALIZATION
-=============================================================================
-
-Replace your existing Portfolio.init() function with the one below.
-
+                                INITIALIZATION
 ============================================================================= */
 
 Portfolio.init = () => {
@@ -2778,11 +2746,9 @@ Portfolio.MotionSystem = {
 
         ) return;
 
-        gsap.registerPlugin(
-
-            ScrollTrigger
-
-        );
+        if (!gsap.plugins || !gsap.plugins.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+        }
 
     },
 
@@ -4512,21 +4478,7 @@ Portfolio.Application = {
 
 };
 
-/* ==========================================================================
-                        UPDATE APPLICATION START
-=============================================================================
-
-Replace your current DOMContentLoaded listener with this:
-
-document.addEventListener("DOMContentLoaded", async () => {
-
-    Portfolio.init();
-
-    await Portfolio.Application.start();
-
-});
-
-============================================================================= */
+/* Duplicate application start block removed */
 
 
 /* ==========================================================================
