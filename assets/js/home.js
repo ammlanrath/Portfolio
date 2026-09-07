@@ -18,7 +18,16 @@ const Home = {
     ---------------------------------------------------------------------- */
     config: {
         statsSelector: ".achievements__value",
-        scrollThreshold: 0.2
+        scrollThreshold: 0.2,
+        motion: {
+            revealDuration: 0.85,
+            imageRevealDuration: 0.95,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollEase: "none",
+            heroParallax: 0.8,
+            projectParallax: 4
+        }
     },
 
     /* ----------------------------------------------------------------------
@@ -915,7 +924,133 @@ const Home = {
         this.initSkillsExperience();
         this.initProjectParallax();
         this.initAboutParallax();
+        this.initScrollMotion();
         this.initSectionLighting();
+    },
+
+    initScrollMotion() {
+        if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+
+        const motion = this.config.motion;
+        const motionContext = gsap.matchMedia();
+
+        motionContext.add("(min-width: 769px)", () => {
+            const hero = document.getElementById("hero");
+            if (hero) {
+                gsap.to(".hero__left", {
+                    y: -44 * motion.heroParallax,
+                    opacity: 0.78,
+                    ease: motion.scrollEase,
+                    scrollTrigger: {
+                        trigger: hero,
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: 0.65
+                    }
+                });
+
+                gsap.to(".hero__right", {
+                    y: -24 * motion.heroParallax,
+                    opacity: 0.84,
+                    ease: motion.scrollEase,
+                    scrollTrigger: {
+                        trigger: hero,
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: 0.8
+                    }
+                });
+
+                gsap.to(".hero__portrait-wrapper", {
+                    yPercent: -8,
+                    scale: 0.94,
+                    ease: motion.scrollEase,
+                    scrollTrigger: {
+                        trigger: hero,
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: 0.75
+                    }
+                });
+
+                gsap.to(".hero__bg-mesh", {
+                    yPercent: 12,
+                    scale: 1.08,
+                    ease: motion.scrollEase,
+                    scrollTrigger: {
+                        trigger: hero,
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: 1
+                    }
+                });
+            }
+
+            document.querySelectorAll("[data-project-card]").forEach(card => {
+                const media = card.querySelector(".projects__media");
+                const content = card.querySelector(".projects__content");
+                if (!media) return;
+
+                gsap.fromTo(media,
+                    { clipPath: "inset(0 0 100% 0 round 16px)" },
+                    {
+                        clipPath: "inset(0 0 0% 0 round 16px)",
+                        duration: motion.imageRevealDuration,
+                        ease: motion.ease,
+                        scrollTrigger: {
+                            trigger: card,
+                            start: "top 78%",
+                            once: true
+                        }
+                    }
+                );
+
+                gsap.to(media, {
+                    yPercent: -motion.projectParallax,
+                    ease: motion.scrollEase,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 0.7
+                    }
+                });
+
+                if (content) {
+                    gsap.to(content, {
+                        y: -12,
+                        ease: motion.scrollEase,
+                        scrollTrigger: {
+                            trigger: card,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: 0.9
+                        }
+                    });
+                }
+            });
+        });
+
+        document.querySelectorAll(".blogs__card").forEach(card => {
+            const media = card.querySelector(".blogs__media");
+            if (!media) return;
+
+            gsap.fromTo(media,
+                { clipPath: "inset(0 0 100% 0 round 16px)" },
+                {
+                    clipPath: "inset(0 0 0% 0 round 16px)",
+                    duration: motion.imageRevealDuration,
+                    ease: motion.ease,
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 82%",
+                        once: true
+                    }
+                }
+            );
+        });
+
+        this.state.motionContext = motionContext;
     },
 
     initSectionPause() {
